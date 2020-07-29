@@ -5,6 +5,7 @@ from config import app_config
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_migrate import Migrate
+from flask_talisman import Talisman
 
 from sqlalchemy import orm
 
@@ -31,10 +32,11 @@ from .processing import processing as processing_blueprint
 from .storage import storage as storage_blueprint
 from .procedure import procedure as procedure_blueprint
 
+from .csp import csp
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
-
+    Talisman(app, content_security_policy=csp, content_security_policy_nonce_in=None,)    
     app.config.from_object(app_config[os.environ["FLASK_CONFIG"]])
     app.config.from_pyfile("config.py")
 
