@@ -16,11 +16,11 @@
 from owlready2 import get_ontology, onto_path, get_namespace
 import os
 
-onto_path.append(os.environ["ONTO_PATH"])
+onto_path.append(os.environ["ONTOLOGY_DIRECTORY"])
 
 
 def load_doid():
-    onto = get_ontology("file://%s%s" % (os.environ["ONTO_PATH"], "doid.xrdf")).load()
+    onto = get_ontology(os.environ["DOID_PATH"]).load()
     obo = get_namespace("http://purl.obolibrary.org/obo/")
 
     return onto, obo
