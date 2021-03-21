@@ -42,7 +42,7 @@ nanoset==0.1.4
 networkx==2.4
 nose2==0.9.2
 Owlready2==0.25
-Pillow==7.1.2
+Pillow==8.1.1
 pronto==2.1.0
 psycopg2-binary==2.8.5
 pycountry==19.8.18
